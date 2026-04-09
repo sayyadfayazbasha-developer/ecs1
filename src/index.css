@@ -1,0 +1,150 @@
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Bright Peacock Theme - Vibrant teal, turquoise & gold */
+    --background: 180 50% 8%;
+    --foreground: 175 30% 98%;
+
+    --card: 180 45% 12%;
+    --card-foreground: 175 30% 98%;
+
+    --popover: 180 45% 14%;
+    --popover-foreground: 175 30% 98%;
+
+    --primary: 170 85% 50%;
+    --primary-foreground: 180 60% 5%;
+
+    --secondary: 180 50% 20%;
+    --secondary-foreground: 175 30% 98%;
+
+    --muted: 180 40% 22%;
+    --muted-foreground: 175 25% 60%;
+
+    --accent: 45 95% 55%;
+    --accent-foreground: 180 60% 5%;
+
+    --destructive: 0 80% 58%;
+    --destructive-foreground: 175 30% 98%;
+
+    --border: 175 45% 25%;
+    --input: 180 40% 20%;
+    --ring: 170 85% 50%;
+
+    --radius: 0.75rem;
+
+    /* Custom semantic tokens */
+    --urgency-critical: 0 90% 62%;
+    --urgency-high: 25 100% 58%;
+    --urgency-medium: 45 100% 58%;
+    --urgency-low: 160 80% 50%;
+
+    --sentiment-negative: 0 80% 58%;
+    --sentiment-neutral: 180 30% 55%;
+    --sentiment-positive: 160 80% 50%;
+
+    /* Bright Peacock gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(170 85% 50%), hsl(190 90% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(45 95% 55%), hsl(35 100% 60%));
+    --gradient-card: linear-gradient(145deg, hsl(180 45% 14%), hsl(180 45% 10%));
+    
+    --glow-primary: 0 0 50px hsl(170 85% 50% / 0.4);
+    --glow-accent: 0 0 50px hsl(45 95% 55% / 0.4);
+
+    --sidebar-background: 180 55% 6%;
+    --sidebar-foreground: 175 30% 98%;
+    --sidebar-primary: 170 85% 50%;
+    --sidebar-primary-foreground: 180 60% 5%;
+    --sidebar-accent: 180 50% 18%;
+    --sidebar-accent-foreground: 175 30% 98%;
+    --sidebar-border: 175 45% 25%;
+    --sidebar-ring: 170 85% 50%;
+  }
+
+  .dark {
+    --background: 222 47% 6%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+  }
+
+  code, pre, .mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-border/50;
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .gradient-text {
+    background: var(--gradient-primary);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.6s ease-out forwards;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { 
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to { 
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
